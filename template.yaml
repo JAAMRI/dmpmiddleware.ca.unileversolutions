@@ -18,13 +18,14 @@ Parameters:
 
 Resources:
 
-    dove_dry_shampoos_older_wyng_version_function:
+    doveDryShampoosOlderWyngVersionFunction:
         Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
         Properties:
             CodeUri: dove_dry_shampoos_older_wyng_version/
+            FunctionName: !Sub dove_dry_shampoos_submit_data_to_dmp${ENV} 
             Handler: main.lambda_handler
             Events:
-                dove_dry_shampoos_older_wyng_version_api:
+                doveDryShampoosOlderWyngVersion:
                     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
                     Properties:
                         Path: /dove_dry_shampoos_campaign_data
@@ -35,7 +36,7 @@ Outputs:
     # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
     # Find out more about other implicit resources you can reference within SAM
     # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-    dove_dry_shampoos_older_wyng_version_api:
+    doveDryShampoosOlderWyngVersionApi:
       Description: "API Gateway endpoint URL for Prod stage for Hello World function"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${ENV}/dove_dry_shampoos_campaign_data/"
 

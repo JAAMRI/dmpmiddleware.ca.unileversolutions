@@ -14,19 +14,21 @@ Parameters:
     Description: Required. The env
     Type: String
 Resources:
-  dove_dry_shampoos_older_wyng_version_function:
+  doveDryShampoosOlderWyngVersionFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: s3://serverlesstutorial1/69a17d8b1fd18ba3e76100469638cbcb
+      FunctionName:
+        Fn::Sub: dove_dry_shampoos_submit_data_to_dmp${ENV}
       Handler: main.lambda_handler
       Events:
-        dove_dry_shampoos_older_wyng_version_api:
+        doveDryShampoosOlderWyngVersion:
           Type: Api
           Properties:
             Path: /dove_dry_shampoos_campaign_data
             Method: post
 Outputs:
-  dove_dry_shampoos_older_wyng_version_api:
+  doveDryShampoosOlderWyngVersionApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${ENV}/dove_dry_shampoos_campaign_data/
