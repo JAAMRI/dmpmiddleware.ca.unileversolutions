@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'dmpmiddleware.ca.unileversolutions
+
+  Sample SAM Template for dmpmiddleware.ca.unileversolutions
+
+  '
+Globals:
+  Function:
+    Timeout: 60
+    Runtime: python3.7
+Parameters:
+  ENV:
+    Description: Required. The env
+    Type: String
+Resources:
+  dove_dry_shampoos_older_wyng_version_function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://serverlesstutorial1/69a17d8b1fd18ba3e76100469638cbcb
+      Handler: main.lambda_handler
+      Events:
+        dove_dry_shampoos_older_wyng_version_api:
+          Type: Api
+          Properties:
+            Path: /dove_dry_shampoos_campaign_data
+            Method: post
+Outputs:
+  dove_dry_shampoos_older_wyng_version_api:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${ENV}/dove_dry_shampoos_campaign_data/
