@@ -27,7 +27,7 @@ Resources:
                 dove_dry_shampoos_older_wyng_version_api:
                     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
                     Properties:
-                        Path: /dove_dry_shampoos_campaign
+                        Path: /dove_dry_shampoos_campaign_data
                         Method: post
 
 Outputs:
@@ -37,7 +37,7 @@ Outputs:
     # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
     dove_dry_shampoos_older_wyng_version_api:
       Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${ENV}/dove_dry_shampoos_campaign/"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${ENV}/dove_dry_shampoos_campaign_data/"
 
     # HelloWorldFunction:
     #   Description: "Hello World Lambda Function ARN"
