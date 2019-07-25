@@ -19,17 +19,17 @@ Parameters:
 
 Resources:
 
-    doveDryShampoosOlderWyngVersionFunction:
+    dmpmiddlewareDoveDryShampoosOlderWyngVersionFunction:
         Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
         Properties:
             CodeUri: dove_dry_shampoos_older_wyng_version/
-            FunctionName: !Sub dove_dry_shampoos_submit_data_to_dmp${ENV} 
+            FunctionName: !Sub dmpmiddlewaredove-dry-shampoos-${ENV} 
             Handler: main.lambda_handler
             Events:
                 doveDryShampoosOlderWyngVersion:
                     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
                     Properties:
-                        Path: /dove_dry_shampoos_campaign_data
+                        Path: /dmpmiddleware-dove-dry-shampoos-data
                         Method: post
 
 Outputs:
