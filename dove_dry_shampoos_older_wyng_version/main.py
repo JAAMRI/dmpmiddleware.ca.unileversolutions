@@ -27,7 +27,7 @@ logger.setLevel(logging.INFO)
 
 
 def lambda_handler(event, context):
-
+    logging.info(event)
     return {
         'statusCode': 200,
         # calling the mid way function and passing all parameters
